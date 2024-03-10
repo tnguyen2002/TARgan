@@ -5,23 +5,15 @@ from PIL import ImageFilter, Image
 
 from src.datasets.cifar10 import CIFAR10, CIFAR10Corners
 
-from src.datasets.ham import HAM, HAM_semisupervised
-from src.datasets.pannuke import PanNuke, PretrainPanNuke_DA, PretrainPanNuke_LDA
-from src.datasets.idrid import IDRiD, PretrainIDRiD_DA, PretrainIDRiD_LDA
+# from src.datasets.ham import HAM, HAM_semisupervised
+# from src.datasets.pannuke import PanNuke, PretrainPanNuke_DA, PretrainPanNuke_LDA
+# from src.datasets.idrid import IDRiD, PretrainIDRiD_DA, PretrainIDRiD_LDA
 
 from src.datasets.data_statistics import get_data_mean_and_stdev
 
 DATASET = {
     'cifar10': CIFAR10,
     'cifar10_corners': CIFAR10Corners,
-    'ham': HAM,
-    'pannuke': PanNuke,
-    'pt_pannuke_da': PretrainPanNuke_DA,
-    'pt_pannuke_lda': PretrainPanNuke_LDA,
-    'idrid': IDRiD,
-    'ham_generated_and_real_diffaug':HAM_semisupervised
-    'pt_idrid_da': PretrainIDRiD_DA,
-    'pt_idrid_lda': PretrainIDRiD_LDA,
 }
 
 

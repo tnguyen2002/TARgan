@@ -66,7 +66,7 @@ def run(args, gpu_device=None):
         save_top_k=-1,
         period=1,
     )
-    wandb.init(project='xiluo-runs', name=config.exp_name, config=config, sync_tensorboard=True)
+    wandb.init(project='tom-runs', name=config.exp_name, config=config, sync_tensorboard=True)
     trainer = pl.Trainer(
         default_root_dir=config.exp_dir,
         gpus=gpu_device,
