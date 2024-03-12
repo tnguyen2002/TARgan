@@ -6,9 +6,11 @@ wandb
 .npy
 .pyc
 __pycache__
+dataset/
 training-runs/
 experiments/
 gridimgnew/
 MNIST/
 noisedata/
 out/
+viewmaker/data/
