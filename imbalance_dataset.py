@@ -39,15 +39,15 @@ def create_imbalanced_dataset(json_file, output_file, ratios):
 
 # Example usage
 ratios = {
-    0: 0.01, 
+    0: 0.25, 
     1: 1, 
     2: 1,
-    3: 0.01,
+    3: 0.25,
     4: 1,
     5: 1,
-    6: 1,
+    6: 0.25,
     7: 1,
     8: 1,
-    9: 1}  # Example ratios for classes 0, 1, and 2
+    9: 0.25}  # Example ratios for classes 0, 1, and 2
 
 create_imbalanced_dataset('dataset/cifar10/dataset.json', 'dataset/cifar10/imbalanced_dataset.json', ratios)
