@@ -3,7 +3,7 @@ import random
 from torchvision import transforms
 from PIL import ImageFilter, Image
 
-from src.datasets.cifar10 import CIFAR10, CIFAR10Corners
+from src.datasets.cifar10 import CIFAR10, CIFAR10Corners, CustomCIFAR10
 
 # from src.datasets.ham import HAM, HAM_semisupervised
 # from src.datasets.pannuke import PanNuke, PretrainPanNuke_DA, PretrainPanNuke_LDA
@@ -14,6 +14,7 @@ from src.datasets.data_statistics import get_data_mean_and_stdev
 DATASET = {
     'cifar10': CIFAR10,
     'cifar10_corners': CIFAR10Corners,
+    'cifar10_imbalanced': CustomCIFAR10,
 }
 
 

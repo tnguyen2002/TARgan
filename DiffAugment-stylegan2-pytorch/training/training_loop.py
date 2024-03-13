@@ -60,9 +60,10 @@ def setup_snapshot_image_grid(training_set, random_seed=0):
             indices = label_groups[label]
             grid_indices += [indices[x % len(indices)] for x in range(gw)]
             label_groups[label] = [indices[(i + gw) % len(indices)] for i in range(len(indices))]
-
+        # print("labels groups", label_groups)
     # Load data.
     images, labels = zip(*[training_set[i] for i in grid_indices])
+    # print("labels",  np.stack(labels))
     return (gw, gh), np.stack(images), np.stack(labels)
 
 #----------------------------------------------------------------------------

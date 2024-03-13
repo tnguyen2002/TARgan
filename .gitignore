@@ -14,3 +14,6 @@ MNIST/
 noisedata/
 out/
 viewmaker/data/
+
+generated_images/
+DiffAugment-stylegan2-pytorch/data/

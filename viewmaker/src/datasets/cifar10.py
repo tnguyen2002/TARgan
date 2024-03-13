@@ -6,6 +6,8 @@ import numpy as np
 import random
 import string
 import math
+import json
+import pandas as pd
 
 import torch
 import torch.utils.data as data
@@ -49,6 +51,54 @@ class CIFAR10(data.Dataset):
 
     def __len__(self):
         return len(self.dataset)
+class CustomCIFAR10(data.Dataset):
+    NUM_CLASSES = 1
+    NUM_CHANNELS = 3
+    FILTER_SIZE = 32
+    MULTI_LABEL = False
+
+    def __init__(
+            self, 
+            root=DATA_ROOTS['cifar10_imbalanced'], 
+            train=True, 
+            image_transforms=None, 
+            alternate_label=False
+        ):
+        super().__init__()
+        if not os.path.isdir(root):
+            os.makedirs(root)
+        
+        self.root = root
+        self.train = train
+        self.df = pd.read_csv(os.path.join(root, 'cifar10_imbalanced.csv'))
+        self.dataset = self.df
+        self.dataset.targets = [int(i) for i in self.df['label']]
+        self.image_transforms = image_transforms
+
+    def __getitem__(self, index):
+        # pick random number
+        #train
+         # pick random number
+        image_path,label,split,neg_index =self.df.iloc[index]
+        img_data = Image.open(os.path.join(self.root, image_path)).convert('RGB')
+        img2_data = Image.open(os.path.join(self.root, image_path)).convert('RGB')
+
+        neg_data_path,label, split, neg_index =self.df.iloc[neg_index]
+        neg_data = Image.open(os.path.join(self.root, neg_data_path)).convert('RGB')
+    
+        # build this wrapper such that we can return index
+
+        if(self.image_transforms):
+            img_data = self.image_transforms(img_data)
+            img2_data = self.image_transforms(img2_data)
+            neg_data = self.image_transforms(neg_data)   
+        data = [index, img_data.float(), img2_data.float(), neg_data.float(), label]
+        return tuple(data)
+
+    def __len__(self):
+        return len(self.df)
+
+
 
 def draw_mask(shape, x1, y1, x2, y2, width, height, x3=0, y3=0):
     mask = Image.new("RGB", (width, height), (0, 0, 0))

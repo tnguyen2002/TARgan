@@ -14,14 +14,14 @@ from src.systems.image_systems import PretrainViewMakerSystem
 from src.utils import utils
 import warnings
 
-# base_dir='/home/xiluohe/VMDGan/viewmaker_models/vm_ckpts/pretrain_viewmaker_idrid_rev2_budget_0_1/'
-# config_path = os.path.join(base_dir, 'config.json')
-# config_json = utils.load_json(config_path)
-# config = DotMap(config_json)
-# SystemClass = globals()[config.system]
-# system = SystemClass(config)
-# checkpoint_file = os.path.join(base_dir, 'checkpoints', 'epoch=199.ckpt')
-# system.load_state_dict(torch.load(checkpoint_file, map_location='cpu')['state_dict'])
+base_dir= '/home/anhn/TARgan/experiments/pretrain_viewmaker_cifar'
+config_path = os.path.join(base_dir, 'config.json')
+config_json = utils.load_json(config_path)
+config = DotMap(config_json)
+SystemClass = globals()[config.system]
+system = SystemClass(config)
+checkpoint_file = os.path.join(base_dir, 'checkpoints', 'epoch=199.ckpt')
+system.load_state_dict(torch.load(checkpoint_file, map_location='cpu')['state_dict'])
 
 def DiffAugment(x, policy='', channels_first=True):
     

@@ -1,7 +1,7 @@
 import os
 from copy import deepcopy
 import sys
-sys.path.append('/home/g2raghavganesh/TARgan/viewmaker')
+sys.path.append('/home/anhn/TARgan/viewmaker')
 from src.systems import image_systems
 from src.utils.utils import load_json
 from src.utils.setup import process_config
