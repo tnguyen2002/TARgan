@@ -40,11 +40,13 @@ def setup_snapshot_image_grid(training_set, random_seed=0):
     else:
         # Group training samples by label.
         label_groups = dict() # label => [idx, ...]
+        print("TRAIN SET LEN: ", len(training_set))
         for idx in range(len(training_set)):
             label = tuple(training_set.get_details(idx).raw_label.flat[::-1])
             if label not in label_groups:
                 label_groups[label] = []
             label_groups[label].append(idx)
+        print("LABEL GROUPS: ", label_groups)
 
         # Reorder.
         label_order = sorted(label_groups.keys())

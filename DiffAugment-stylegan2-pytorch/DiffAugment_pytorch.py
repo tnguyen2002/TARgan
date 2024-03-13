@@ -9,7 +9,7 @@ import dotmap
 from dotmap import DotMap
 import os
 import sys
-sys.path.append('/home/anhn/TARgan/viewmaker')
+sys.path.append('/home/g2raghavganesh/TARgan/viewmaker')
 from src.systems.image_systems import PretrainViewMakerSystem
 from src.utils import utils
 import warnings
