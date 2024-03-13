@@ -157,8 +157,8 @@ def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix'
 
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 # change json + root dir here
-json_file = "/home/adamchun/TARgan/dataset/cifar-10_imbalanced/dataset.json"
-root_dir = "/home/adamchun/TARgan/dataset/cifar-10_imbalanced"
+json_file = "/home/adamchun/TARgan/dataset/cifar-10_viewmaker_diffaugment/viewmaker_diffaugment_orig_dataset.json"
+root_dir = "/home/adamchun/TARgan/dataset/cifar-10_viewmaker_diffaugment"
 train_dataset = CustomCIFAR10Dataset(json_file=json_file, root_dir=root_dir, transform=transform)
 trainloader = DataLoader(train_dataset, batch_size=32, shuffle=True, num_workers=2)
 testset = torchvision.datasets.CIFAR10(root='./test_cifar10', train=False, download=True, transform=transform)
